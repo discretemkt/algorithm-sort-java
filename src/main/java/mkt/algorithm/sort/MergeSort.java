@@ -28,15 +28,15 @@ public class MergeSort<E> extends AbstractSort<E> {
         int len = end - begin;
         if (len < 2)
             return;
-        int half = begin + len / 2;
-        executeMergeSort(array, begin, half);
-        executeMergeSort(array, half, end);
+        int mid = begin + len / 2;
+        executeMergeSort(array, begin, mid);
+        executeMergeSort(array, mid, end);
         @SuppressWarnings("unchecked")
         E[] merge = (E[]) new Object[len];
         int i = begin;
-        int j = half;
+        int j = mid;
         int k = 0;
-        while (i < half && j < end) {
+        while (i < mid && j < end) {
             if (compare(array[i], array[j]) <= 0) {
                 merge[k] = array[i];
                 i++;
@@ -46,7 +46,7 @@ public class MergeSort<E> extends AbstractSort<E> {
             }
             k++;
         }
-        while (i < half) {
+        while (i < mid) {
             merge[k] = array[i];
             i++;
             k++;
