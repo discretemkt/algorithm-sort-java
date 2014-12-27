@@ -19,7 +19,7 @@ public class BenchmarkTest {
     private static void testFasterAlgorithms() {
         int size = 1024 * 1024 - 1;
         List<Integer> randomNumbers = generateRandomNumbers(size);
-        System.out.printf("Benchmark of faster algorithms [%,d samples]\n", size);
+        System.out.printf("Benchmark of faster algorithms with %,d samples\n", size);
         execute(randomNumbers.toArray(new Integer[size]));
         execute(new MergeSort<Integer>(), randomNumbers.toArray(new Integer[size]));
     }
@@ -27,8 +27,9 @@ public class BenchmarkTest {
     private static void testSlowerAlgorithms() {
         int size = 128 * 128 - 1;
         List<Integer> randomNumbers = generateRandomNumbers(size);
-        System.out.printf("Benchmark of slower algorithms [%,d samples]\n", size);
+        System.out.printf("Benchmark of slower algorithms with %,d samples\n", size);
         execute(new BubbleSort<Integer>(), randomNumbers.toArray(new Integer[size]));
+        execute(new InsertionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new SelectionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
     }
     
@@ -41,7 +42,7 @@ public class BenchmarkTest {
     }
     
     private static void execute(Integer[] randomNumbers) {
-        System.out.printf("%s ... ", Arrays.class.getName());
+        System.out.printf("  %s ... ", Arrays.class.getName());
         long t0 = System.currentTimeMillis();
         Arrays.sort(randomNumbers);
         long t1 = System.currentTimeMillis();
@@ -49,7 +50,7 @@ public class BenchmarkTest {
     }
     
     private static void execute(Sort<Integer> sort, Integer[] randomNumbers) {
-        System.out.printf("%s ... ", sort.getClass().getName());
+        System.out.printf("  %s ... ", sort.getClass().getName());
         long t0 = System.currentTimeMillis();
         sort.sort(randomNumbers);
         long t1 = System.currentTimeMillis();
