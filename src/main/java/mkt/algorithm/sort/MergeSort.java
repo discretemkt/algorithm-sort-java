@@ -31,7 +31,7 @@ public class MergeSort<E> extends AbstractSort<E> {
         int half = begin + len / 2;
         executeMergeSort(array, begin, half);
         executeMergeSort(array, half, end);
-        @SuppressWarnings("unckeced")
+        @SuppressWarnings("unchecked")
         E[] merge = (E[]) new Object[len];
         int i = begin;
         int j = half;
