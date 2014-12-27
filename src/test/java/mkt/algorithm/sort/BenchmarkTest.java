@@ -16,15 +16,16 @@ public class BenchmarkTest {
         testSlowerAlgorithms();
     }
     
-    private static void testFasterAlgorithms() {
+    private static void testFasterAlgorithms() { // O(n log n)
         int size = 1024 * 1024 - 1;
         List<Integer> randomNumbers = generateRandomNumbers(size);
         System.out.printf("Benchmark of faster algorithms with %,d samples\n", size);
         execute(randomNumbers.toArray(new Integer[size]));
+        execute(new CombSort<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new MergeSort<Integer>(), randomNumbers.toArray(new Integer[size]));
     }
     
-    private static void testSlowerAlgorithms() {
+    private static void testSlowerAlgorithms() { // O(n pow 2)
         int size = 128 * 128 - 1;
         List<Integer> randomNumbers = generateRandomNumbers(size);
         System.out.printf("Benchmark of slower algorithms with %,d samples\n", size);

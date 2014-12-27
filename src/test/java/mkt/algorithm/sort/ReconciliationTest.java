@@ -39,6 +39,15 @@ public class ReconciliationTest {
     }
     
     @Test
+    public void testCombSort() {
+        reconcile(new CombSort<Integer>());
+        
+        /* Comb Sort is not a stable sorting algorithm.
+        reconcileStability(new CombSort<>(comparator));
+        */
+    }
+    
+    @Test
     public void testInsertionSort() {
         reconcile(new InsertionSort<Integer>());
         reconcileStability(new InsertionSort<>(comparator));
