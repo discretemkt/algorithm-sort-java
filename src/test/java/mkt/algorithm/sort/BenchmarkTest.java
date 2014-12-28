@@ -30,6 +30,9 @@ public class BenchmarkTest {
         List<Integer> randomNumbers = generateRandomNumbers(size);
         System.out.printf("Benchmark of slower algorithms with %,d samples\n", size);
         execute(new BubbleSort<Integer>(), randomNumbers.toArray(new Integer[size]));
+        execute(new GnomeSort<Integer>(), randomNumbers.toArray(new Integer[size]));
+        execute(new GnomeSortOptimized<Integer>(), randomNumbers.toArray(new Integer[size]));
+        execute(new GnomeSortWithInsertion<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new InsertionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new SelectionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
     }

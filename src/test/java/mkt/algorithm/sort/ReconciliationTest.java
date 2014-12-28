@@ -48,6 +48,24 @@ public class ReconciliationTest {
     }
     
     @Test
+    public void testGnomeSort() {
+        reconcile(new GnomeSort<Integer>());
+        reconcileStability(new GnomeSort<>(comparator));
+    }
+    
+    @Test
+    public void testGnomeSortOptimized() {
+        reconcile(new GnomeSortOptimized<Integer>());
+        reconcileStability(new GnomeSortOptimized<>(comparator));
+    }
+    
+    @Test
+    public void testGnomeSortWithInsertion() {
+        reconcile(new GnomeSortWithInsertion<Integer>());
+        reconcileStability(new GnomeSortWithInsertion<>(comparator));
+    }
+    
+    @Test
     public void testInsertionSort() {
         reconcile(new InsertionSort<Integer>());
         reconcileStability(new InsertionSort<>(comparator));
