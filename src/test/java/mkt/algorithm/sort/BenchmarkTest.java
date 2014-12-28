@@ -35,6 +35,7 @@ public class BenchmarkTest {
         execute(new GnomeSortWithInsertion<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new InsertionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
         execute(new SelectionSort<Integer>(), randomNumbers.toArray(new Integer[size]));
+        execute(new SelectionSortWithInsertion<Integer>(), randomNumbers.toArray(new Integer[size]));
     }
     
     private static List<Integer> generateRandomNumbers(int size) {

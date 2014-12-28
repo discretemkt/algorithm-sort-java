@@ -81,6 +81,12 @@ public class ReconciliationTest {
     }
     
     @Test
+    public void testSelectionSortWithInsertion() {
+        reconcile(new SelectionSortWithInsertion<Integer>());
+        reconcileStability(new SelectionSortWithInsertion<>(comparator));
+    }
+    
+    @Test
     public void testMergeSort() {
         reconcile(new MergeSort<Integer>());
         reconcileStability(new MergeSort<>(comparator));
