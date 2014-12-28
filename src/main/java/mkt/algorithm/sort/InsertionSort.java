@@ -21,10 +21,10 @@ public class InsertionSort<E> extends AbstractSort<E> {
     public void sort(E[] array) throws ClassCastException, NullPointerException {
         if (array.length < 2)
             return;
-        executeSelectionSort(array);
+        executeInsertionSort(array);
     }
     
-    private void executeSelectionSort(E[] array) throws ClassCastException, NullPointerException {
+    private void executeInsertionSort(E[] array) throws ClassCastException, NullPointerException {
         for (int i = 1; i < array.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (compare(array[j], array[i]) > 0) {
