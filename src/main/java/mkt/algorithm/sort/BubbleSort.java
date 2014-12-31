@@ -25,16 +25,14 @@ public class BubbleSort<E> extends AbstractSort<E> {
     }
     
     private void executeBubbleSort(E[] array) throws ClassCastException, NullPointerException {
-        int last = array.length - 1;
-        while (0 < last) {
-            for (int i = 0; i < last; i++) {
-                if (compare(array[i], array[i + 1]) > 0) {
-                    E tmp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = tmp;
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = array.length - 1; j > i; --j) {
+                if (compare(array[j - 1], array[j]) > 0) {
+                    E tmp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = tmp;
                 }
             }
-            --last;
         }
     }
     
